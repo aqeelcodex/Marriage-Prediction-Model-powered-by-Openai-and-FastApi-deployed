@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marriage Prediction Results</title>
+    <style>
+        /* Global page setup */
+        body {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            background-color: #0b132b;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* Container styling */
+        .container {
+            width: 100%;
+            max-width: 750px;
+            background: linear-gradient(145deg, #1c2541, #0b132b);
+            padding: 35px;
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        h2 {
+            color: #f9d342;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #ffde7d;
+            margin-top: 25px;
+            font-size: 1.3em;
+        }
+
+        p {
+            white-space: pre-line;
+            line-height: 1.7;
+            color: #dce3f0;
+        }
+
+        ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 6px 0;
+            color: #d7e3ff;
+            line-height: 1.6;
+        }
+
+        /* Highlight boxes for sections */
+        .highlight {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 20px;
+            border-radius: 10px;
+            border-left: 4px solid #f9d342;
+            margin-top: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .highlight:hover {
+            transform: scale(1.01);
+            box-shadow: 0 4px 10px rgba(249, 211, 66, 0.3);
+        }
+
+        /* Button styling */
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            text-decoration: none;
+            color: #0b132b;
+            background: #f9d342;
+            padding: 12px 22px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 3px 8px rgba(249, 211, 66, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #ffde7d;
+            box-shadow: 0 5px 12px rgba(249, 211, 66, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px;
+            }
+            .container {
+                padding: 25px;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Hello {{name}}, here is your Marriage Prediction 🌟</h2>
+
+        <div class="highlight">
+            <h3>🔮 Prediction:</h3>
+            <p>{{ result.split('\n')[0] }}</p>
+        </div>
+
+        <div class="highlight">
+            <h3>💡 Suggestions for Improvement:</h3>
+            <ul>
+                {% for line in result.split('\n')[1:] if line.strip() %}
+                    <li>{{ line }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div style="text-align:center;">
+            <a href="/" class="back-link">🔙 Back to Form</a>
+        </div>
+    </div>
+</body>
+</html>

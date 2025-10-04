@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marriage Prediction</title>
+    <style>
+        /* ----------- Base Styles ----------- */
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ----------- Container ----------- */
+        .container {
+            width: 90%;
+            max-width: 700px;
+            background: #ffffff;
+            padding: 40px 35px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.7s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            font-size: 26px;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        /* ----------- Form Inputs ----------- */
+        label {
+            display: block;
+            font-weight: 600;
+            color: #444;
+            margin-top: 12px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0,123,255,0.2);
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        /* ----------- Button ----------- */
+        button {
+            background: linear-gradient(135deg, #007bff, #00d4ff);
+            color: white;
+            padding: 14px;
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #0056b3, #00a3cc);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 91, 187, 0.2);
+        }
+
+        /* ----------- Responsive ----------- */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>💍 Marriage Prediction Form</h2>
+        <form action="/predict_form" method="post">
+
+            <label>Name</label>
+            <input type="text" name="name" placeholder="Enter your full name" required>
+
+            <label>Age</label>
+            <input type="number" name="age" placeholder="Enter your age" required>
+
+            <label>Gender</label>
+            <select name="gender" required>
+                <option value="" disabled selected>Select your gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label>Height (cm)</label>
+            <input type="number" step="0.1" name="height" placeholder="Enter your height in cm" required>
+
+            <label>Weight (kg)</label>
+            <input type="number" step="0.1" name="weight" placeholder="Enter your weight in kg" required>
+
+            <label>Income (Monthly in USD)</label>
+            <input type="number" step="0.01" name="income" placeholder="Enter your monthly income" required>
+
+            <label>Education</label>
+            <input type="text" name="education" placeholder="e.g. Bachelor's, Master's, etc." required>
+
+            <label>Occupation</label>
+            <input type="text" name="occupation" placeholder="e.g. Software Engineer, Doctor, Teacher" required>
+
+            <label>Social Life</label>
+            <input type="text" name="social_life" placeholder="e.g. Introvert, Extrovert, Moderate" required>
+
+            <label>Relationship Status</label>
+            <select name="relationship_status" required>
+                <option value="" disabled selected>Select status</option>
+                <option value="single">Single</option>
+                <option value="in relationship">In a Relationship</option>
+                <option value="divorced">Divorced</option>
+                <option value="widowed">Widowed</option>
+            </select>
+
+            <label>Exercise Habits</label>
+            <input type="text" name="exercise_habits" placeholder="e.g. Daily, Occasionally, Rarely" required>
+
+            <label>Health Conditions</label>
+            <textarea name="health_conditions" placeholder="Mention any diseases or health issues" rows="2"></textarea>
+
+            <label>Skin Color</label>
+            <input type="text" name="skin_color" placeholder="e.g. Fair, Medium, Dark" required>
+
+            <label>Hobbies</label>
+            <input type="text" name="hobbies" placeholder="e.g. Reading, Traveling, Sports" required>
+
+            <label>Family Background</label>
+            <textarea name="family_background" placeholder="Describe your family (e.g. religious, modern, joint family)" rows="2"></textarea>
+
+            <label>Religion</label>
+            <input type="text" name="religion" placeholder="Enter your religion" required>
+
+            <label>Marriage Intention</label>
+            <select name="intention" required>
+                <option value="" disabled selected>Select intention</option>
+                <option value="serious">Serious</option>
+                <option value="not serious">Not Serious</option>
+            </select>
+
+            <button type="submit">🔮 Predict My Marriage</button>
+        </form>
+    </div>
+</body>
+</html>
